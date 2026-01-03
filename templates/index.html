@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lung Cancer Prediction</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #cfdcd9, #acb6e5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            width: 900px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .input-box label {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 8px 10px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-box input:focus {
+            border-color: #74ebd5;
+            box-shadow: 0 0 5px rgba(116,235,213,0.7);
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #dc8bbc;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #43a047;
+            transform: scale(1.02);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            text-align: center;
+            background: #e8f5e9;
+            border-left: 6px solid #4CAF50;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 25px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Lung Cancer Prediction</h1>
+    <p class="subtitle">Enter patient details to predict lung cancer risk</p>
+
+    <form method="POST" action="/predict">
+        <div class="grid">
+
+            <div class="input-box">
+                <label>Gender (0 = Female, 1 = Male)</label>
+                <input type="number" name="gender" required>
+            </div>
+
+            <div class="input-box">
+                <label>Age</label>
+                <input type="number" name="age" required>
+            </div>
+
+            <div class="input-box">
+                <label>Smoking (0/1)</label>
+                <input type="number" name="smoking">
+            </div>
+
+            <div class="input-box">
+                <label>Yellow Fingers (0/1)</label>
+                <input type="number" name="yellow_fingers">
+            </div>
+
+            <div class="input-box">
+                <label>Anxiety (0/1)</label>
+                <input type="number" name="anxiety">
+            </div>
+
+            <div class="input-box">
+                <label>Peer Pressure (0/1)</label>
+                <input type="number" name="peer_pressure">
+            </div>
+
+            <div class="input-box">
+                <label>Chronic Disease (0/1)</label>
+                <input type="number" name="chronic_disease">
+            </div>
+
+            <div class="input-box">
+                <label>Fatigue (0/1)</label>
+                <input type="number" name="fatigue">
+            </div>
+
+            <div class="input-box">
+                <label>Allergy (0/1)</label>
+                <input type="number" name="allergy">
+            </div>
+
+            <div class="input-box">
+                <label>Wheezing (0/1)</label>
+                <input type="number" name="wheezing">
+            </div>
+
+            <div class="input-box">
+                <label>Alcohol (0/1)</label>
+                <input type="number" name="alcohol">
+            </div>
+
+            <div class="input-box">
+                <label>Coughing (0/1)</label>
+                <input type="number" name="coughing">
+            </div>
+
+            <div class="input-box">
+                <label>Shortness of Breath (0/1)</label>
+                <input type="number" name="shortness_of_breath">
+            </div>
+
+            <div class="input-box">
+                <label>Swallowing Difficulty (0/1)</label>
+                <input type="number" name="swallowing_difficulty">
+            </div>
+
+            <div class="input-box">
+                <label>Chest Pain (0/1)</label>
+                <input type="number" name="chest_pain">
+            </div>
+
+        </div>
+
+        <button type="submit">Predict</button>
+
+        {% if prediction %}
+        <div class="result">
+            Result: {{ prediction }}
+        </div>
+        {% endif %}
+    </form>
+</div>
+
+</body>
+</html>
+

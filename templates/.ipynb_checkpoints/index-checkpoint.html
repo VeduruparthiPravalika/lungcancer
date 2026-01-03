@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lung Cancer Prediction</title>
+</head>
+<body>
+    <h2>Lung Cancer Prediction</h2>
+
+    <form action="/predict" method="post">
+
+        Gender (0 = Female, 1 = Male): <input type="number" name="gender"><br>
+        Age: <input type="number" name="age"><br>
+        Smoking (0/1): <input type="number" name="smoking"><br>
+        Yellow Fingers (0/1): <input type="number" name="yellow_fingers"><br>
+        Anxiety (0/1): <input type="number" name="anxiety"><br>
+        Peer Pressure (0/1): <input type="number" name="peer_pressure"><br>
+        Chronic Disease (0/1): <input type="number" name="chronic_disease"><br>
+        Fatigue (0/1): <input type="number" name="fatigue"><br>
+        Allergy (0/1): <input type="number" name="allergy"><br>
+        Wheezing (0/1): <input type="number" name="wheezing"><br>
+        Alcohol (0/1): <input type="number" name="alcohol"><br>
+        Coughing (0/1): <input type="number" name="coughing"><br>
+        Shortness of Breath (0/1): <input type="number" name="breath_shortness"><br>
+        Swallowing Difficulty (0/1): <input type="number" name="swallowing_difficulty"><br>
+        Chest Pain (0/1): <input type="number" name="chest_pain"><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>
