@@ -1,4 +1,11 @@
-Flask
+flask
+gunicorn
 numpy
+pandas
 scikit-learn
+scipy
 joblib
+matplotlib
+seaborn
+setuptools
+wheel
