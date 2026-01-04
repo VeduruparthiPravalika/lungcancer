@@ -38,10 +38,6 @@
             margin-bottom: 25px;
         }
 
-        form {
-            width: 100%;
-        }
-
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -53,19 +49,14 @@
             color: #333;
         }
 
-        .input-box input {
+        .input-box input,
+        .input-box select {
             width: 100%;
             padding: 8px 10px;
             margin-top: 5px;
             border-radius: 6px;
             border: 1px solid #ccc;
             outline: none;
-            transition: 0.3s;
-        }
-
-        .input-box input:focus {
-            border-color: #74ebd5;
-            box-shadow: 0 0 5px rgba(116,235,213,0.7);
         }
 
         button {
@@ -78,12 +69,10 @@
             font-size: 16px;
             border-radius: 8px;
             cursor: pointer;
-            transition: 0.3s;
         }
 
         button:hover {
             background: #43a047;
-            transform: scale(1.02);
         }
 
         .result {
@@ -94,14 +83,13 @@
             border-left: 6px solid #4CAF50;
             border-radius: 8px;
             font-weight: 600;
+            font-size: 18px;
         }
 
         @media (max-width: 768px) {
             .container {
                 width: 95%;
-                padding: 25px;
             }
-
             .grid {
                 grid-template-columns: 1fr;
             }
@@ -119,92 +107,96 @@
         <div class="grid">
 
             <div class="input-box">
-                <label>Gender (0 = Female, 1 = Male)</label>
-                <input type="number" name="gender" required>
+                <label>Gender</label>
+                <select name="gender" required>
+                    <option value="">Select</option>
+                    <option value="0">Female</option>
+                    <option value="1">Male</option>
+                </select>
             </div>
 
             <div class="input-box">
                 <label>Age</label>
-                <input type="number" name="age" required>
+                <input type="number" name="age" min="1" max="120" required>
             </div>
 
             <div class="input-box">
                 <label>Smoking (0/1)</label>
-                <input type="number" name="smoking">
+                <input type="number" name="smoking" min="0" max="1" required>
             </div>
 
             <div class="input-box">
                 <label>Yellow Fingers (0/1)</label>
-                <input type="number" name="yellow_fingers">
+                <input type="number" name="yellow_fingers" min="0" max="1" required>
             </div>
 
             <div class="input-box">
                 <label>Anxiety (0/1)</label>
-                <input type="number" name="anxiety">
+                <input type="number" name="anxiety" min="0" max="1" required>
             </div>
 
             <div class="input-box">
                 <label>Peer Pressure (0/1)</label>
-                <input type="number" name="peer_pressure">
+                <input type="number" name="peer_pressure" min="0" max="1" required>
             </div>
 
             <div class="input-box">
                 <label>Chronic Disease (0/1)</label>
-                <input type="number" name="chronic_disease">
+                <input type="number" name="chronic_disease" min="0" max="1" required>
             </div>
 
             <div class="input-box">
                 <label>Fatigue (0/1)</label>
-                <input type="number" name="fatigue">
+                <input type="number" name="fatigue" min="0" max="1" required>
             </div>
 
             <div class="input-box">
                 <label>Allergy (0/1)</label>
-                <input type="number" name="allergy">
+                <input type="number" name="allergy" min="0" max="1" required>
             </div>
 
             <div class="input-box">
                 <label>Wheezing (0/1)</label>
-                <input type="number" name="wheezing">
+                <input type="number" name="wheezing" min="0" max="1" required>
             </div>
 
             <div class="input-box">
-                <label>Alcohol (0/1)</label>
-                <input type="number" name="alcohol">
+                <label>Alcohol Consumption (0/1)</label>
+                <input type="number" name="alcohol" min="0" max="1" required>
             </div>
 
             <div class="input-box">
                 <label>Coughing (0/1)</label>
-                <input type="number" name="coughing">
+                <input type="number" name="coughing" min="0" max="1" required>
             </div>
 
             <div class="input-box">
                 <label>Shortness of Breath (0/1)</label>
-                <input type="number" name="shortness_of_breath">
+                <input type="number" name="shortness_of_breath" min="0" max="1" required>
             </div>
 
             <div class="input-box">
                 <label>Swallowing Difficulty (0/1)</label>
-                <input type="number" name="swallowing_difficulty">
+                <input type="number" name="swallowing_difficulty" min="0" max="1" required>
             </div>
 
             <div class="input-box">
                 <label>Chest Pain (0/1)</label>
-                <input type="number" name="chest_pain">
+                <input type="number" name="chest_pain" min="0" max="1" required>
             </div>
 
         </div>
 
         <button type="submit">Predict</button>
 
-        {% if prediction %}
+        {% if prediction is not none %}
         <div class="result">
-            Result: {{ prediction }}
+            Prediction Result: {{ prediction }}
         </div>
         {% endif %}
+
     </form>
 </div>
 
 </body>
 </html>
-
